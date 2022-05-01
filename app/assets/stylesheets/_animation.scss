@@ -1,0 +1,57 @@
+@mixin shiny {
+  animation-name: shine;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-direction: alternate;
+}
+
+@keyframes shine {
+  0% {
+    box-shadow: 0px 0px 50px 10px #0331a1;
+}
+  20% {
+    box-shadow: 0px 0px 50px 10px #007fbd;
+  }
+  40% {
+    box-shadow: 0px 0px 50px 10px #5bc7e1;
+  }
+  60% {
+    box-shadow: 0px 0px 50px 10px #f88810;
+  }
+  80% {
+    box-shadow: 0px 0px 50px 10px #c901a1;
+  }
+  100% {
+    box-shadow: 0px 0px 50px 10px #710b79;
+}
+}
+
+@mixin bgch {
+  animation-name: colorChanger;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-direction: alternate;
+}
+
+@keyframes colorChanger {
+  0% {
+    background-color: #0331a1;
+  }
+  20% {
+    background-color: #007fbd;
+  }
+  40% {
+    background-color: #5bc7e1;
+  }
+  60% {
+    background-color: #f88810;
+  }
+  80% {
+    background-color: #c901a1;
+  }
+  100% {
+    background-color: #710b79;
+  }
+}
