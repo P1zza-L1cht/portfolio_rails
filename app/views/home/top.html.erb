@@ -24,9 +24,18 @@
     <div class="work-text">
       <h2>Works</h2>
     </div>
-    <div class="work-container"></div>
-    <div class="work-container"></div>
-    <div class="work-container"></div>
+    <% @three_works.each do |work| %>
+      <div class="work-container">
+        <img src="<%= "/work_image/#{work.image_name}" %>">
+      </div>
+    <% end %>
+    <div class="to_collection">
+      <%= link_to("/collection") do %>
+        <div id="btn" class="top-btn">
+          <span>more works<span>
+        </div>
+      <% end %>
+    </div>
   </div>
   <div id="contact">
     <div class="contact-text">

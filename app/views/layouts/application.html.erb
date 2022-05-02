@@ -22,9 +22,9 @@
       </div>
       <div class="header-navi">
         <ul>
-          <li><a href="#works" id="btn" class="header-btn">Works</a></li>
-          <li><a href="#about" id="btn" class="header-btn">About</a></li>
-          <li><a href="#contact" id="btn" class="header-btn">Contact</a></li>
+          <li><a href="#works" id="btn" class="top-btn">Works</a></li>
+          <li><a href="#about" id="btn" class="top-btn">About</a></li>
+          <li><a href="#contact" id="btn" class="top-btn">Contact</a></li>
         </ul>
       </div>
       <div class="lang-navi">
@@ -35,11 +35,18 @@
       </div>
     </div>
   </header>
+  <main>
+      <% if flash[:notice] %>
+        <div id="notice">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
     <%= yield %>
-  </body>
+  </main>
   <footer>
     <div id="copyright">
       <p>Copyright🄫All reserved by Haruki Yui</p>
     </div>
   </footer>
+  </body>
 </html>

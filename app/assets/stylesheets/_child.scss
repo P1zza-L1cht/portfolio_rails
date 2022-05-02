@@ -1,0 +1,14 @@
+@mixin child {
+  @for $count from 2 through 10 {
+    &:nth-child(#{$count}) {
+      @if $count % 2 == 0 {
+        grid-column: 2/5;
+        grid-row: #{$count}/#{$count + 1};
+      } @else {
+        grid-column: 1/4;
+        grid-row: #{$count}/#{$count + 1};
+      }
+    }
+  }
+}
+

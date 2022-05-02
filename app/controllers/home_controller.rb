@@ -5,6 +5,6 @@ class HomeController < ApplicationController
   end
 
   def collection
-    @works = Work.all.order(created_at: :desc)
+    @works = Work.all.reverse_order.page(params[:page]).per(10)
   end
 end
