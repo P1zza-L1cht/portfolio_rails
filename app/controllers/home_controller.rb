@@ -14,7 +14,7 @@ class HomeController < ApplicationController
   end
 
   def to_en
-    I18n.locale = :end
+    I18n.locale = :en
     redirect_to request.referer
   end
 end

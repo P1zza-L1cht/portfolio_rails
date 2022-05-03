@@ -18,22 +18,31 @@
   <header>
     <div class="header-container">
       <div id="logo">
-        <img src="/visual_image/Haruki_logo.png">
+        <%= link_to(image_tag("/visual_image/Haruki_logo.png"), "/") %>
       </div>
       <div class="header-navi">
         <ul>
           <li><a href="/#works" id="btn" class="top-btn">Works</a></li>
           <li><a href="/#about" id="btn" class="top-btn">About</a></li>
           <li><a href="/#contact" id="btn" class="top-btn">Contact</a></li>
+          <li>
+            <%= link_to("/collection") do %>
+              <p id="btn" class="top-btn">Collection</p>
+            <% end %>
+          </li>
         </ul>
       </div>
       <div class="lang-navi">
         <ul>
           <li>
-            <%= link_to("English", "/en", {method: "post"}) %>
+            <%= link_to("/en", data: {turbo_method: :post, turbo_confirm: 'Are you sure to switch to English?'}) do %>
+              <span class="lang-btn">English</span>
+            <% end %>
           </li>
           <li>
-            <%= link_to("日本語", "/ja", {method: "post"}) %>
+            <%= link_to("/ja", data: {turbo_method: :post, turbo_confirm: '日本語に切り替えますか'}) do %>
+              <span class="lang-btn">日本語</span>
+            <% end %>
           </li>
         </ul>
       </div>
