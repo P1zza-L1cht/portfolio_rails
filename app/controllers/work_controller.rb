@@ -6,6 +6,10 @@ class WorkController < ApplicationController
     @work = Work.new
   end
 
+  def index
+    @works = Work.all.order(created_at: :desc)
+  end
+
   def create
     @work = Work.new(user_id: session[:admin_id])
     @work.save

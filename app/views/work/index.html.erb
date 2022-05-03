@@ -1,0 +1,29 @@
+<div class="index-container">
+  <div class="new">
+    <%= link_to("/works/new") do %>
+      <span id="btn">新規投稿</span>
+    <% end %>
+  </div>
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>作成日</th>
+      <th>画像</th>
+      <th></th>
+    </tr>
+    <% @works.each do |work| %>
+    <tr>
+      <td><%= work.title %></td>
+      <td><%= work.created_at %></td>
+      <td><img src="<%= "/work_images/#{work.image_name}" %>"></td>
+      <td>
+        <% if work.user_id == session[:admin_id].to_i %>
+          <%= link_to("edit","/works/#{work.id}/edit") %>
+          <%= link_to("delete","/works/#{work.id}/destroy", method: "post") %>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+    <%= paginate @works %>
+  </table>
+</div>

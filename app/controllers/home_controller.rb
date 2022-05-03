@@ -7,4 +7,14 @@ class HomeController < ApplicationController
   def collection
     @works = Work.all.reverse_order.page(params[:page]).per(10)
   end
+
+  def to_jp
+    I18n.lacale = :ja
+    redirect_to request.referer
+  end
+
+  def to_en
+    I18n.locale = :end
+    redirect_to request.referer
+  end
 end

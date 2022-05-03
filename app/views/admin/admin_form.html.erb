@@ -1,0 +1,7 @@
+<div class="admin_login">
+  <%= form_with(url: "/login" local: true) do |form| %>
+  <%= form.text_field :mail %>
+  <%= form.text_field :password, type="password" %>
+  <%= form.submit %>
+  <% end %>
+</div>

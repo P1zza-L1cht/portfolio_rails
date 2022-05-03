@@ -9,7 +9,7 @@
     <meta name="author" content="油井 陽輝">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+  
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
@@ -22,15 +22,19 @@
       </div>
       <div class="header-navi">
         <ul>
-          <li><a href="#works" id="btn" class="top-btn">Works</a></li>
-          <li><a href="#about" id="btn" class="top-btn">About</a></li>
-          <li><a href="#contact" id="btn" class="top-btn">Contact</a></li>
+          <li><a href="/#works" id="btn" class="top-btn">Works</a></li>
+          <li><a href="/#about" id="btn" class="top-btn">About</a></li>
+          <li><a href="/#contact" id="btn" class="top-btn">Contact</a></li>
         </ul>
       </div>
       <div class="lang-navi">
         <ul>
-          <li>English<li>
-          <li>日本語</li>
+          <li>
+            <%= link_to("English", "/en", {method: "post"}) %>
+          </li>
+          <li>
+            <%= link_to("日本語", "/ja", {method: "post"}) %>
+          </li>
         </ul>
       </div>
     </div>

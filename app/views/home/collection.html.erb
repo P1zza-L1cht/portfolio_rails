@@ -5,10 +5,6 @@
         <img src="<%= "/work_image/#{work.image_name}" %>">
       </div>
     </div>
-    <% if work.user_id == session[:admin_id].to_i %>
-      <%= link_to("edit","/works/edit") %>
-      <%= link_to("delete","/works/destroy", method: "post") %>
-    <% end %>
   <% end %>
   <%= paginate @works %>
 </div>

@@ -1,0 +1,7 @@
+<div class="edit-page">
+  <%= form_with(url: works_path, model: @work , local: true) do |f| %>
+    <%= f.text_field(:title, 'タイトルを入力') %>
+    <%= f.file_field(:image, '画像を選択') %>
+    <%= f.submit %>
+  <% end %>
+</div>
