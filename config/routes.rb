@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   get '/collection' => 'home#collection'
 
   resources :work, only: [:new, :index, :edit, :create, :destroy, :update]
-  post 'login' => 'admin#sign_in'
-  post 'logout' => 'admin#sign_out'
-  get 'login' => 'admin_form'
+  post 'login' => 'admins#sign_in'
+  post 'logout' => 'admins#sign_out'
+  get '/login' => 'admins#admin_form'
   post '/ja' => 'home#to_ja'
   post '/en' => 'home#to_en'
 

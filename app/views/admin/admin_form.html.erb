@@ -1,7 +1,15 @@
 <div class="admin_login">
-  <%= form_with(url: "/login" local: true) do |form| %>
-  <%= form.text_field :mail %>
-  <%= form.text_field :password, type="password" %>
-  <%= form.submit %>
-  <% end %>
+  <div class="login_form">
+    <% if @error_message %>
+      <div class="form-error">
+        <%= @error_message %>
+      </div>
+    <% end %>
+    <%= form_with url: "/login", data: {turbo_method: :post}, local: true do |form| %>
+      <h2>Login</h2>
+      <%= form.text_field :mail, class: "form-control", placeholder: "メールアドレス" %>
+      <%= form.password_field :password, class: "form-control", placeholder: "パスワード" %> 
+      <%= form.submit :Login, class: "submit-btn" %>
+    <% end %>
+  </div>
 </div>

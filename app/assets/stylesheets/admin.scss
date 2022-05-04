@@ -1,0 +1,47 @@
+
+.admin_login {
+  width: 80%;
+  height: 700px;
+  margin: 50px auto;
+  display: grid;
+  grid-template-columns: 1fr 350px 1fr;
+  grid-template-rows: 30px 280px 30px;
+
+  .login_form {
+    grid-column: 2/3;
+    grid-row: 2/3;
+
+    h2 {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 40px;
+    }
+
+    .form-control {
+      display: block;
+      width: calc(100% - 28px);
+      height: 34px;
+      padding: 6px 12px;
+      margin-top: 20px;
+      font-size: 14px;
+      border: 2px solid #007fbd;
+      border-radius: 5px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      margin-top: 30px;
+      padding: 12px 0;
+      background-color: #2f2f2f;
+      opacity: 0.8;
+      border: 2px solid #007fbd;
+      border-radius: 5px;
+      color: #007fbd;
+      &:hover {
+        opacity: 1;
+        box-shadow: 0 0 3px 3px #007fbd;
+
+      }
+    }
+  }
+}
