@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_02_152746) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_04_182852) do
   create_table "admins", force: :cascade do |t|
     t.string "name"
     t.string "mail"
@@ -20,10 +20,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_02_152746) do
   end
 
   create_table "works", force: :cascade do |t|
-    t.string "image_name"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "link_url"
+    t.string "title"
+    t.string "image"
   end
 
 end

@@ -52,6 +52,9 @@ gem 'sassc'
 gem 'kaminari'
 gem 'kaminari-i18n'
 gem 'jquery-rails'
+gem 'pry-rails'
+gem 'mini_magick'
+gem 'carrierwave'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

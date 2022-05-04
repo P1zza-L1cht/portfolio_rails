@@ -3,10 +3,10 @@ class AdminsController < ApplicationController
   end
 
   def sign_in
-    @admin = Admin.find_by(mail: params[:mail])
+    @admin = Admin.find_by(secure_params[:mail])
     respond_to do |format|
-      if @admin && @admin.authenticate(params[:password])
-        session[:admin] = @admin.name
+      if @admin && @admin.authenticate(secure_params[:password])
+        session[:admin_user] = @admin.name
         session[:admin_id] = @admin.id
         format.html {redirect_to collection_path, notice: "ログインしました"}
       else
@@ -17,9 +17,16 @@ class AdminsController < ApplicationController
   end
 
   def sign_out
-    session[:admin] = nil
-    session[:admin_id] = nil
+    session.delete(:admin_user)
+    session.delete(:admin_id)
     flash[:notice] = "ログアウトしました"
     redirect_to "/login"
   end
+
+private
+
+  def secure_params
+    params.require(:session).permit(:mail, :password)
+  end
+
 end

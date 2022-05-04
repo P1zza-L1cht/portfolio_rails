@@ -5,7 +5,7 @@
     </div>
   <% end %>
   <div class="login_form">
-    <%= form_with url: "/login", data: {turbo_method: :post}, local: true do |form| %>
+    <%= form_with url: "/login", model: @admin, data: {turbo_method: :post}, local: true do |form| %>
       <h2>Login</h2>
       <%= form.text_field :mail, class: "form-control", placeholder: "メールアドレス" %>
       <%= form.password_field :password, class: "form-control", placeholder: "パスワード" %> 

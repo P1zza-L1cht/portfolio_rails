@@ -26,7 +26,7 @@
     </div>
     <% @three_works.each do |work| %>
       <div class="work-container">
-        <img src="<%= "/work_image/#{work.image_name}" %>">
+        <%= image_tag work.image.url %>
       </div>
     <% end %>
     <div class="to_collection">

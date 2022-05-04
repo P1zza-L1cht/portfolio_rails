@@ -1,7 +1,19 @@
 <div class="edit-page">
-  <%= form_with(url: works_path, model: @work , local: true) do |f| %>
-    <%= f.text_field(:title, 'タイトルを入力') %>
-    <%= f.file_field(:image, '画像を選択') %>
-    <%= f.submit %>
+  <% if @error_message %>
+    <div class="form-error">
+      <%= @error_message %>
+    </div>
   <% end %>
+  <div class="work-form">
+    <%= form_with(url: work_path, model: @work , local: true, data: {turbo_method: :patch}) do |f| %>
+      <h2>編集</h2>
+      <%= f.text_field :title, placeholder: "タイトル", class: "form-control" %>
+      <label id="upload">
+        画像をアップロード
+        <%= f.file_field :image, style:"display: none;" %>
+      </label>
+      <%= f.text_field :link_url, placeholder: "URLを入力", class: "form-control" %>
+      <%= f.submit :submit, class: "submit-btn" %>
+    <% end %>
+  </div>
 </div>

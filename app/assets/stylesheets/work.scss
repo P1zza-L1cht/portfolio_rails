@@ -1,7 +1,148 @@
+/* Index ------------------------------*/
 .index-container {
-  width: 80%;
-  height: auto;
+  width: 90%;
+  min-height: 600px;
   margin: 40px auto;
-  justify-content: center;
-  align-content: center;
+
+  .new-btn-container {
+    width: 100%;
+    height: 70px;
+
+    .new {
+      float: right;
+      margin-right: 30px;
+
+      .new-btn {
+        display: block;
+        padding: 16px 36px;
+        background-color: #2f2f2f;
+        border: 1px solid #fff;
+        color: white;
+        border-radius: 10px;
+        &:hover {
+          border: 1px solid #007fbd;
+          color: #007fbd;
+          box-shadow: 0 0 2px 2px #007fbd;
+          transition: 0.8;
+        }
+      }
+    }
+  }
+  .work-list {
+    margin: 0 auto;
+    
+    thead th {
+      width: 120px;
+      height: 20px;
+      padding: 5px 10px;
+      font-size: 1.1rem;
+      &:nth-child(3) {
+        width: 300px;
+      }
+    }
+
+    .edit-btn {
+      display: block;
+      padding: 16px 36px;
+      background-color: #2f2f2f;
+      border: 1px solid #fff;
+      color: white;
+      border-radius: 10px;
+    }
+    
+    .edit {
+      &:hover {
+        border: 1px solid green;
+        color: green;
+        box-shadow: 0 0 2px 2px green;
+        transition: 0.8;
+      }
+    }
+
+    .delete {
+      &:hover {
+        border: 1px solid red;
+        color: red;
+        box-shadow: 0 0 2px 2px red;
+        transition: 0.8;
+      }
+    }
+  }
+}
+
+/* New Edit -------------------------------------------------*/
+
+.edit-page {
+  width: 80%;
+  height: 700px;
+  margin: 50px auto;
+  display: grid;
+  grid-template-columns: 1fr 350px 1fr;
+  grid-template-rows: 30px 280px 30px;
+
+  .form-error {
+    grid-column: 1/4;
+    grid-row: 1/2;
+    align-self: center;
+    justify-self: center;
+    background-color: coral;
+    color: white;
+    padding: 16px 10px;
+  }
+
+  .work-form {
+    grid-column: 2/3;
+    grid-row: 2/3;
+
+    h2 {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 40px;
+    }
+
+    .form-control {
+      display: block;
+      width: calc(100% - 28px);
+      height: 34px;
+      padding: 6px 12px;
+      margin-top: 20px;
+      font-size: 14px;
+      border: 2px solid #007fbd;
+      border-radius: 5px;
+    }
+
+    #upload {
+      display: inline-block;
+      cursor: pointer;
+      padding: 12px 20px;
+      margin-top: 20px;
+      background-color: #2f2f2f;
+      color: white;
+      border: 1px solid white;
+      border-radius: 5px;
+      &:hover {
+        border: 1px solid #007fbd;
+        color: #007fbd;
+        box-shadow: 0 0 2px 2px #007fbd;
+      }
+    }
+
+    .submit-btn {
+      display: inline-block;
+      width: 100%;
+      margin-top: 30px;
+      padding: 12px 0;
+      background-color: #2f2f2f;
+      opacity: 0.8;
+      border: 2px solid white;
+      border-radius: 5px;
+      color: white;
+      &:hover {
+        opacity: 1;
+        color: #007fbd;
+        border: 1px solid #007fbd;
+        box-shadow: 0 0 3px 3px #007fbd;
+      }
+    }
+  }
 }

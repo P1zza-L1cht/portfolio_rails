@@ -11,23 +11,16 @@ class WorksController < ApplicationController
   end
 
   def create
-    @work = Work.new(user_id: session[:admin_id])
-    @work.save
-      if params[:image]
-        @work.image_name = "#{@work.id}.jpg"
-        image = params[:image]
-        file.binwrite("public/work_images/#{@work.image_name}, image.read")
-      else
-        @work.destroy
-        render("works/new")
-      end
-
+    @work = Work.new(work_params)
+    @work.user_id = session[:admin_id]
+    respond_to do |format|
       if @work.save
-        flash[:notice] = "画像をアップロードしました"
-        redirect_to("/collection")
+        format.html {redirect_to works_path, notice: "画像をアップロードしました"}
       else
-        render("works/new")
+        @error_message = "保存できませんでした"
+        format.html {render :new, status: :unprocessable_entity}
       end
+    end
   end
 
   def edit
@@ -36,19 +29,28 @@ class WorksController < ApplicationController
 
   def update
     @work = Work.find_by(id: params[:id])
-    image = params[:image]
-    file.binwrite("public/work_images/#{@work.image_name}, image.read")
-    @work.save
-    flash[:notice] = "画像を更新しました"
-    redirect_to("/collection")
+    respond_to do |format|
+      if @work.update(work_params)
+        format.html {redirect_to works_path, notice: "更新しました"}
+      else
+        @error_message = "保存できませんでした"
+        format.html {render :edit, status: :unprocessable_entity}
+      end
+    end
   end
 
   def destroy
     @work = Work.find_by(id: params[:id])
     @work.destroy
-
     respond_to do |format|
-      format.html {redirect_to collection_path, notice: "削除に成功しました", status: :see_other } 
+      format.html {redirect_to works_path, notice: "削除に成功しました", status: :see_other } 
     end
   end
+
+  private
+
+  def work_params
+    params.require(:work).permit(:title, :link_url, :image, :user_id)
+  end
+
 end
