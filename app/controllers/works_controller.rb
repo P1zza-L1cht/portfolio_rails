@@ -1,13 +1,13 @@
-class WorkController < ApplicationController
-  before_action: :session_check
-  before_action: :author_session
+class WorksController < ApplicationController
+  before_action :session_check
+  before_action :author_session
 
   def new
     @work = Work.new
   end
 
   def index
-    @works = Work.all.order(created_at: :desc)
+    @works = Work.all.reverse_order.page(params[:page]).per(30)
   end
 
   def create
@@ -45,9 +45,10 @@ class WorkController < ApplicationController
 
   def destroy
     @work = Work.find_by(id: params[:id])
-    flash[:notice] = "削除に成功しました"
     @work.destroy
-    redirect_to("/collection")
-  end
 
+    respond_to do |format|
+      format.html {redirect_to collection_path, notice: "削除に成功しました", status: :see_other } 
+    end
+  end
 end

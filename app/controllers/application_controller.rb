@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
-
+  before_action :admin_exist
+  
   def author_session
     if session[:admin] == nil
       flash[:notice] = "権限がありません"
@@ -16,5 +17,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def admin_exist
+    if session[:admin]
+      @admin_exist = "exist"
+    else
+      @admin_exist = nil
+    end
+  end
 
 end

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get '/' => 'home#top'
   get '/collection' => 'home#collection'
 
-  resources :work, only: [:new, :index, :edit, :create, :destroy, :update]
+  resources :works, only: [:new, :index, :edit, :create, :destroy, :update]
   post 'login' => 'admins#sign_in'
   post 'logout' => 'admins#sign_out'
   get '/login' => 'admins#admin_form'

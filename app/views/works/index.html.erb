@@ -19,7 +19,7 @@
       <td>
         <% if work.user_id == session[:admin_id].to_i %>
           <%= link_to("edit","/works/#{work.id}/edit") %>
-          <%= link_to("delete","/works/#{work.id}/destroy", data {turbo_method: :delete, turbo_confirm: '削除してよろしいですか') %>
+          <%= link_to("delete","/works/#{work.id}/destroy", data: {turbo_method: :delete, turbo_confirm: '削除してよろしいですか'}) %>
         <% end %>
       </td>
     </tr>

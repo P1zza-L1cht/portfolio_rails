@@ -7,6 +7,16 @@
   grid-template-columns: 1fr 350px 1fr;
   grid-template-rows: 30px 280px 30px;
 
+  .form-error {
+    grid-column: 1/4;
+    grid-row: 1/2;
+    align-self: center;
+    justify-self: center;
+    background-color: coral;
+    color: white;
+    padding: 16px 10px;
+  }
+
   .login_form {
     grid-column: 2/3;
     grid-row: 2/3;

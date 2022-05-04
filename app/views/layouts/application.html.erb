@@ -30,6 +30,16 @@
               <p id="btn" class="top-btn">Collection</p>
             <% end %>
           </li>
+          <% if @admin_exist %>
+            <li>
+              <%= link_to("MGT." ,"/works", id: "btn", class: "top-btn") %>
+            </li>
+            <li>
+              <%= link_to("/logout", data: {turbo_method: :post}) do %>
+                <span id="btn" class="top-btn">Logout</span>
+              <% end %>
+            </li>
+          <% end %>
         </ul>
       </div>
       <div class="lang-navi">
