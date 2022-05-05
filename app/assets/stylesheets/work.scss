@@ -19,6 +19,7 @@
         border: 1px solid #fff;
         color: white;
         border-radius: 10px;
+        text-decoration: none;
         &:hover {
           border: 1px solid #007fbd;
           color: #007fbd;
@@ -41,9 +42,25 @@
       }
     }
 
+    tbody td {
+      height: auto;
+      margin-top: 5px;
+      text-align: center;
+      vertical-align: middle;
+
+      .image-index {
+        display: inline-block;
+        vertical-align: middle;
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+      }
+    }
+
     .edit-btn {
+      width: 60px;
       display: block;
-      padding: 16px 36px;
+      padding: 10px 22px;
       background-color: #2f2f2f;
       border: 1px solid #fff;
       color: white;

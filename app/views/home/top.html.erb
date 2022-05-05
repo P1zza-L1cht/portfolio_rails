@@ -27,6 +27,13 @@
     <% @three_works.each do |work| %>
       <div class="work-container">
         <%= image_tag work.image.url %>
+        <% if work.link_url %>
+          <div class="url-link">
+            <%= link_to("#{work.link_url}", class:"site-btn") do %>
+              <span>Visit page</span>
+            <% end %>
+          </div>
+        <% end %>
       </div>
     <% end %>
     <div class="to_collection">

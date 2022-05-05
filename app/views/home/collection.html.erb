@@ -1,8 +1,15 @@
 <div class="collection-container">
   <% @works.each do |work| %>
-    <div class="work-container">
+    <div class="work-content">
       <div class="work">
         <%= image_tag work.image.url %>
+        <% if work.link_url %>
+          <div class="link-box">
+            <%= link_to("#{work.link_url}", class:"site-btn" ) do %>
+              <span>Visit page</span>
+            <% end %>
+          </div>
+        <% end %>
       </div>
     </div>
   <% end %>

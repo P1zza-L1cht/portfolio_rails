@@ -3,7 +3,7 @@ class AdminsController < ApplicationController
   end
 
   def sign_in
-    @admin = Admin.find_by(secure_params[:mail])
+    @admin = Admin.find_by(mail: secure_params[:mail])
     respond_to do |format|
       if @admin && @admin.authenticate(secure_params[:password])
         session[:admin_user] = @admin.name
@@ -26,7 +26,7 @@ class AdminsController < ApplicationController
 private
 
   def secure_params
-    params.require(:session).permit(:mail, :password)
+    params.require(:admin).permit(:password, :mail)
   end
 
 end

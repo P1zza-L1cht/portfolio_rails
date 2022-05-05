@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def top
-    works = Work.all.order(created_at: :desc)
+    works = Work.all.order(id: :desc)
     @three_works = works.first(3)
   end
 

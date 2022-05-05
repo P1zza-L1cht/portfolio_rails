@@ -1,9 +1,7 @@
 <div class="index-container">
   <div class="new-btn-container">
     <div class="new">
-      <%= link_to("/works/new") do %>
-        <span class="new-btn">新規投稿</span>
-      <% end %>
+      <%= link_to("新規投稿", "/works/new", class: "new-btn") %>
     </div>
   </div>
   <table class="work-list">
@@ -14,21 +12,20 @@
         <th>サイトURL</th>
         <th>画像</th>
         <th></th>
+        <th></th>
       </tr>
     </thead>
-    <% @works.each do |work| %>>
+    <% @works.each do |work| %>
     <tbody>
       <tr>
         <td><%= work.title %></td>
-        <td><%= work.created_at %></td>
-        <td><%= image_tag work.image.url %></td>
-        <td><%= work.link_url %></td>
-        <td>
+        <td><%= l work.created_at , format: :long %></td>
+        <td><%= link_to("#{work.link_url}") %></td>
+        <td><%= image_tag work.image.url, class: "image-index" %></td>
           <% if work.user_id == session[:admin_id].to_i %>
-            <%= link_to("edit","/works/#{work.id}/edit", class: "edit-btn edit") %>
-            <%= link_to("delete",work_path(work.id) ,class: "edit-btn delete", data: {turbo_method: :delete, turbo_confirm: '削除してよろしいですか'}) %>
+            <td><%= link_to("edit","/works/#{work.id}/edit", class: "edit-btn edit") %></td>
+            <td><%= link_to("delete",work_path(work.id) ,class: "edit-btn delete", data: {turbo_method: :delete, turbo_confirm: '削除してよろしいですか'}) %></td>
           <% end %>
-        </td>
       </tr>
     </tbody>
     <% end %>
