@@ -1,3 +1,5 @@
+@import "_variable";
+
 /* Index ------------------------------*/
 .index-container {
   width: 90%;
@@ -13,18 +15,10 @@
       margin-right: 30px;
 
       .new-btn {
-        display: block;
         padding: 16px 36px;
-        background-color: #2f2f2f;
-        border: 1px solid #fff;
-        color: white;
-        border-radius: 10px;
-        text-decoration: none;
+        @include btn-base($scl, $bcl);
         &:hover {
-          border: 1px solid #007fbd;
-          color: #007fbd;
-          box-shadow: 0 0 2px 2px #007fbd;
-          transition: 0.8;
+          @include hov($mcl);
         }
       }
     }
@@ -59,29 +53,20 @@
 
     .edit-btn {
       width: 60px;
-      display: block;
       padding: 10px 22px;
-      background-color: #2f2f2f;
-      border: 1px solid #fff;
-      color: white;
-      border-radius: 10px;
+      @include btn-base($scl, $bcl);
     }
     
     .edit {
       &:hover {
-        border: 1px solid green;
-        color: green;
-        box-shadow: 0 0 2px 2px green;
-        transition: 0.8;
+        @include hov(green);
+
       }
     }
 
     .delete {
       &:hover {
-        border: 1px solid red;
-        color: red;
-        box-shadow: 0 0 2px 2px red;
-        transition: 0.8;
+        @include hov(red);
       }
     }
   }
@@ -102,8 +87,8 @@
     grid-row: 1/2;
     align-self: center;
     justify-self: center;
-    background-color: coral;
-    color: white;
+    background-color: $notice;
+    color: $scl;
     padding: 16px 10px;
   }
 
@@ -124,41 +109,27 @@
       padding: 6px 12px;
       margin-top: 20px;
       font-size: 14px;
-      border: 2px solid #007fbd;
+      border: 2px solid $mcl;
       border-radius: 5px;
     }
 
     #upload {
-      display: inline-block;
       cursor: pointer;
       padding: 12px 20px;
       margin-top: 20px;
-      background-color: #2f2f2f;
-      color: white;
-      border: 1px solid white;
-      border-radius: 5px;
+      @include btn-base($scl, $bcl);
       &:hover {
-        border: 1px solid #007fbd;
-        color: #007fbd;
-        box-shadow: 0 0 2px 2px #007fbd;
+        @include hov($mcl);
       }
     }
 
     .submit-btn {
-      display: inline-block;
       width: 100%;
       margin-top: 30px;
       padding: 12px 0;
-      background-color: #2f2f2f;
-      opacity: 0.8;
-      border: 2px solid white;
-      border-radius: 5px;
-      color: white;
+      @include btn-base($scl, $bcl);
       &:hover {
-        opacity: 1;
-        color: #007fbd;
-        border: 1px solid #007fbd;
-        box-shadow: 0 0 3px 3px #007fbd;
+        @include hov($mcl);
       }
     }
   }

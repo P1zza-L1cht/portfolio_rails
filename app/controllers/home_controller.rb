@@ -5,10 +5,6 @@ class HomeController < ApplicationController
     @contact = Contact.new
   end
 
-  def collection
-    @works = Work.all.reverse_order.page(params[:page]).per(10)
-  end
-
   def thanks
   end
 

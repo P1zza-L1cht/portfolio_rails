@@ -1,0 +1,14 @@
+<% if @admin_exist %>
+  <li>
+    <%= link_to("MGT." ,"/works", id: "btn") %>
+  </li>
+  <li>
+    <%= link_to("/logout", data: {turbo_method: :post}) do %>
+      <span id="btn">Logout</span>
+    <% end %>
+  </li>
+<% else %>
+  <li><a href="/#works" id="btn">Works</a></li>
+  <li><a href="/#about" id="btn">About</a></li>
+  <li><a href="/#contact" id="btn">Contact</a></li>
+<% end %>

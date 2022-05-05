@@ -1,0 +1,24 @@
+$mcl: #007fbd;
+$scl: #fff;
+$bcl: #2f2f2f;
+$notice: #e7420b;
+
+
+
+@mixin btn-base($scl, $bcl) {
+  display: inline-block;
+  background-color: $bcl;
+  text-align: center;
+  opacity: 0.8;
+  border: 1px solid $scl;
+  border-radius: 5px;
+  color: $scl;
+  text-decoration: none;
+}
+
+@mixin hov($mcl) {
+    opacity: 1;
+    color:  $mcl;
+    border: 1px solid $mcl;
+    box-shadow: 0 0 3px 3px $mcl;
+}

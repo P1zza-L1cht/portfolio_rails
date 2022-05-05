@@ -3,20 +3,7 @@
     <div id="main-visual">
       <div class="visual-navi">
         <ul>
-          <% if @admin_exist %>
-            <li>
-              <%= link_to("MGT." ,"/works", id: "btn", class: "top-btn") %>
-            </li>
-            <li>
-              <%= link_to("/logout", data: {turbo_method: :post}) do %>
-                <span id="btn" class="top-btn">Logout</span>
-              <% end %>
-            </li>
-          <% else %>
-            <li><a href="/#works" id="btn" class="top-btn">Works</a></li>
-            <li><a href="/#about" id="btn" class="top-btn">About</a></li>
-            <li><a href="/#contact" id="btn" class="top-btn">Contact</a></li>
-          <% end %>
+          <%= render 'layouts/navigation' %>
         </ul>
       </div>
     </div>
@@ -41,7 +28,7 @@
         <%= image_tag work.image.url %>
         <% if work.link_url %>
           <div class="url-link">
-            <%= link_to("#{work.link_url}", class:"site-btn") do %>
+            <%= link_to("#{work.link_url}", id:"site-btn") do %>
               <span>Visit page</span>
             <% end %>
           </div>
@@ -50,7 +37,7 @@
     <% end %>
     <div class="to_collection">
       <%= link_to("/collection") do %>
-        <div id="btn" class="top-btn">
+        <div id="btn">
           <span>more works<span>
         </div>
       <% end %>
@@ -66,7 +53,7 @@
         <%= f.text_field :name, class: "form-control", placeholder: "Name" %>
         <%= f.text_field :email, class: "form-control", placeholder: "E-mail" %>
         <%= f.text_area :message, class: "form-control", id: "form-area" %>
-        <%= f.submit :send, class: "submit-btn", id: "btn"%>
+        <%= f.submit :send, id: "submit-btn"%>
       <% end %>
       </div>
     </div>

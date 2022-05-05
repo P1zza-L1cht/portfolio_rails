@@ -2,6 +2,10 @@ class WorksController < ApplicationController
   before_action :session_check
   before_action :author_session
 
+  def collection
+    @works = Work.all.reverse_order.page(params[:page]).per(10)
+  end
+  
   def new
     @work = Work.new
   end

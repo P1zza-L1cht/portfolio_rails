@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   get '/' => 'home#top'
   get '/thanks' => 'home#thanks'
-  get '/collection' => 'home#collection'
-
+  
+  get '/collection' => 'works#collection'
   resources :works, only: [:new, :index, :edit, :create, :destroy, :update]
   post 'login' => 'admins#sign_in'
   post 'logout' => 'admins#sign_out'

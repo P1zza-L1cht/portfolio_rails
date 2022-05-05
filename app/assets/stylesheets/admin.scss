@@ -1,3 +1,4 @@
+@import "_variable";
 
 .admin_login {
   width: 80%;
@@ -12,8 +13,8 @@
     grid-row: 1/2;
     align-self: center;
     justify-self: center;
-    background-color: coral;
-    color: white;
+    background-color: $notice;
+    color: $scl;
     padding: 16px 10px;
   }
 
@@ -34,25 +35,17 @@
       padding: 6px 12px;
       margin-top: 20px;
       font-size: 14px;
-      border: 2px solid #007fbd;
+      border: 2px solid $mcl;
       border-radius: 5px;
     }
 
     .submit-btn {
-      display: inline-block;
       width: 100%;
       margin-top: 30px;
       padding: 12px 0;
-      background-color: #2f2f2f;
-      opacity: 0.8;
-      border: 2px solid white;
-      border-radius: 5px;
-      color: white;
+      @include btn-base($scl, $bcl);
       &:hover {
-        opacity: 1;
-        color: #007fbd;
-        border: 1px solid #007fbd;
-        box-shadow: 0 0 3px 3px #007fbd;
+        @include hov($mcl);
       }
     }
   }

@@ -1,0 +1,19 @@
+<div class="edit-page">
+  <% if @error_message %>
+    <div class="form-error">
+      <%= @error_message %>
+    </div>
+  <% end %>
+  <div class="work-form">
+    <%= form_with(url: path, scope: :work, model: work , local: true, data: {turbo_method: method}) do |f| %>
+      <h2><%= tag %></h2>
+      <%= f.text_field :title, placeholder: "タイトル", class: "form-control" %>
+      <label id="upload">
+        画像をアップロード
+        <%= f.file_field :image, style:"display: none;" %>
+      </label>
+      <%= f.text_field :link_url, placeholder: "URLを入力", class: "form-control" %>
+      <%= f.submit :submit, id: "submit-btn" %>
+    <% end %>
+  </div>
+</div>
