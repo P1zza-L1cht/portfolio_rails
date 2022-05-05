@@ -57,10 +57,18 @@
     </div>
   </div>
   <div id="contact">
-    <div class="contact-text">
-      <h2>Contact</h2>
-    </div>
     <div class="contact-content">
+      <div class="contact-text">
+        <h2>Contact</h2>
+      </div>
+      <div class="contact-form">
+      <%= form_with url: send_jp_path, scope: :contact, data: {turbo_method: :post}, local: true do |f| %>
+        <%= f.text_field :name, class: "form-control", placeholder: "Name" %>
+        <%= f.text_field :email, class: "form-control", placeholder: "E-mail" %>
+        <%= f.text_area :message, class: "form-control", id: "form-area" %>
+        <%= f.submit :send, class: "submit-btn", id: "btn"%>
+      <% end %>
+      </div>
     </div>
   </div>
 </div>
