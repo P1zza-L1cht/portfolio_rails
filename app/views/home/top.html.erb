@@ -1,12 +1,24 @@
 <div class="top-container">
   <div class="visual-container">
-    <div id="main-visual"></div>
-    <div class="visual-navi">
-      <ul>
-        <li>Works</li>
-        <li>About</li>
-        <li>Contact</li>
-      </ul>
+    <div id="main-visual">
+      <div class="visual-navi">
+        <ul>
+          <% if @admin_exist %>
+            <li>
+              <%= link_to("MGT." ,"/works", id: "btn", class: "top-btn") %>
+            </li>
+            <li>
+              <%= link_to("/logout", data: {turbo_method: :post}) do %>
+                <span id="btn" class="top-btn">Logout</span>
+              <% end %>
+            </li>
+          <% else %>
+            <li><a href="/#works" id="btn" class="top-btn">Works</a></li>
+            <li><a href="/#about" id="btn" class="top-btn">About</a></li>
+            <li><a href="/#contact" id="btn" class="top-btn">Contact</a></li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   </div>
   <div id="about">

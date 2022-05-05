@@ -22,14 +22,6 @@
       </div>
       <div class="header-navi">
         <ul>
-          <li><a href="/#works" id="btn" class="top-btn">Works</a></li>
-          <li><a href="/#about" id="btn" class="top-btn">About</a></li>
-          <li><a href="/#contact" id="btn" class="top-btn">Contact</a></li>
-          <li>
-            <%= link_to("/collection") do %>
-              <p id="btn" class="top-btn">Collection</p>
-            <% end %>
-          </li>
           <% if @admin_exist %>
             <li>
               <%= link_to("MGT." ,"/works", id: "btn", class: "top-btn") %>
@@ -39,7 +31,16 @@
                 <span id="btn" class="top-btn">Logout</span>
               <% end %>
             </li>
+          <% else %>
+            <li><a href="/#works" id="btn" class="top-btn">Works</a></li>
+            <li><a href="/#about" id="btn" class="top-btn">About</a></li>
+            <li><a href="/#contact" id="btn" class="top-btn">Contact</a></li>
           <% end %>
+          <li>
+            <%= link_to("/collection") do %>
+              <p id="btn" class="top-btn">Collection</p>
+            <% end %>
+          </li>
         </ul>
       </div>
       <div class="lang-navi">

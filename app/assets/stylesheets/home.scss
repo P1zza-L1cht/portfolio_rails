@@ -81,6 +81,10 @@ header {
       grid-row: 1/3;
       align-self: center;
       justify-self: center;
+
+      @include mq(tablet) {
+        grid-column: 1/5;
+      }
     }
 
     .header-navi {
@@ -88,6 +92,10 @@ header {
       grid-row: 2/3;
       align-self: center;
       justify-self: right;
+
+      @include mq(tablet) {
+        display: none !important;
+      }
 
       ul {
         display: flex;
@@ -149,6 +157,9 @@ footer {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 20% 1fr 20%;
+    @include mq(phone) {
+      height: 500px;
+    }
 
     #main-visual {
       grid-column: 1/5;
@@ -158,12 +169,22 @@ footer {
       background-repeat: no-repeat;
       background-size: cover;
       @include bgch;
-    }
+      position: relative;
 
-    .visual-navi {
-      
-      @include mq(pc) {
-        display: none;
+      .visual-navi {
+        position: absolute;
+        top: 220px;
+        right: 100px;
+        li {
+          margin-top: 20px;
+        }
+        @include mq(pc) {
+          display: none !important;
+        }
+        @include mq(phone) {
+          top: 150px;
+          right: 60px;
+        }
       }
     }
   }
@@ -175,10 +196,22 @@ footer {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
 
+    @include mq(tablet) {
+      min-height: 400px;
+    }
+
+
     .description {
       grid-column: 1/2;
       grid-row: 1/4;
       background-color: rgb(87, 32, 115);
+
+      @include mq(tablet) {
+        grid-column: 1/3;
+        grid-row: 1/4;
+        width: 90%;
+        margin: 0 auto;
+      }
 
       .text-area {
         width: 90%;
@@ -196,6 +229,10 @@ footer {
     .about-image {
       grid-column: 2/3;
       grid-row: 2/3;
+
+      @include mq(tablet) {
+        display: none !important;
+      }
 
       img {
         width: 100%;
@@ -224,6 +261,14 @@ footer {
     .work-container {
       grid-column: 1/3;
       grid-row: 2/3;
+
+      @include mq(tablet) {
+        grid-column: 2/4 !important;
+      }
+
+      @include mq(phone) {
+        grid-column: 1/5 !important;
+      }
       
       img{
         display: inline-block;
@@ -307,6 +352,9 @@ footer {
     grid-row: 1/2;
     padding: 30px;
     @include child;
+    @include mq(tablet) {
+      grid-column: 1/5 !important;
+    }
 
     .work {
       width: 100%;
