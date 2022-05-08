@@ -1,6 +1,6 @@
 class WorksController < ApplicationController
   before_action :session_check
-  before_action :author_session
+  before_action :author_session, {only: [:new, :index, :create, :edit, :update, :destroy]}
 
   def collection
     @works = Work.all.reverse_order.page(params[:page]).per(10)

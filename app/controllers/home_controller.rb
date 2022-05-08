@@ -11,6 +11,7 @@ class HomeController < ApplicationController
   def send_jp
     contact = Contact.new(sender_params)
     ContactMailer.send_mail(contact).deliver_now
+    ContactMailer.to_admin(contact).deliver_now
     respond_to do |format|
       format.html {redirect_to thanks_path, notice: "送信しました"}
     end
